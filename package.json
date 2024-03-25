@@ -28,6 +28,6 @@
     "pdfkit": "^0.15.0",
     "webpack": ">= v5.0.0",
     "webpack-dev-server": ">= v4.0.0",
-    "webpack-cli": "v5.0.0+"
+    "webpack-cli": "v5.0.0"
   }
 }
