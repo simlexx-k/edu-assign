@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+  <body>
+<%- include('partials/_header.ejs') %>
+    <main role="main" class="container mt-5">
+      <h2>Grade Submissions</h2>
+      <form id="gradingForm">
+        <% submissions.forEach(submission => { %>
+          <div class="mb-3">
+            <label>Student: <%= submission.studentId.username %></label>
+            <input type="text" name="grade-<%= submission._id %>" placeholder="Grade" class="form-control" value="<%= submission.grade ? submission.grade : '' %>">
+            <textarea name="feedback-<%= submission._id %>" placeholder="Feedback" class="form-control"><%= submission.feedback ? submission.feedback : '' %></textarea>
+            <button type="button" class="btn btn-primary saveGrade" data-submission-id="<%= submission._id %>">Save</button>
+          </div>
+        <% }); %>
+      </form>
+    </main>
+  </body>
+<%- include('partials/_footer.ejs') %>
+  <script src="/js/grading.js"></script>
+</html>

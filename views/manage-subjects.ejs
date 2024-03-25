@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-5">
+  <h2>Manage Subjects</h2>
+  <a href="/subjects/new" class="btn btn-primary mb-3">Add New Subject</a>
+  <ul class="list-group">
+    <% subjects.forEach(subject => { %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= subject.name %>
+        <form action="/subjects/delete/<%= subject._id %>" method="POST">
+          <input type="hidden" name="_csrf" value="<%= _csrf %>">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+</main>
+<%- include('partials/_footer.ejs') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

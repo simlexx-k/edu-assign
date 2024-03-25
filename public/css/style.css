@@ -1,0 +1,61 @@
+/* Responsive design adjustments */
+body {
+  padding-top: 56px; /* Adjust padding to ensure content is not hidden behind fixed navbar */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px; /* Adjust container padding on smaller screens */
+  }
+}
+
+/* Improve form appearance */
+form {
+  max-width: 500px; /* Limit form width for better appearance on large screens */
+  margin: auto;
+}
+
+/* Styling for error messages for better visibility */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+  background-color: #0056b3; /* Primary color for the navigation bar */
+  box-shadow: 0 2px 4px rgba(0,0,0,.1); /* Adding a subtle shadow for depth */
+}
+
+.nav-link {
+  color: #ffffff !important; /* Ensuring text color is white for better contrast */
+  margin-right: 15px; /* Spacing between navigation links */
+}
+
+.nav-link:hover {
+  color: #cce5ff !important; /* Lighter shade for hover state */
+}
+
+.navbar-brand {
+  color: #ffffff !important; /* Ensuring the brand logo/text is white */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .navbar-nav {
+    margin-top: 15px; /* Additional spacing for collapsed menu items */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-link {
+    margin-right: 0; /* Removing spacing between navigation links on smaller screens */
+  }
+}
+
+/* Accessibility improvements */
+.navbar a:focus {
+  outline: 2px dashed #cce5ff; /* Adding a focus outline for keyboard navigation */
+  outline-offset: 2px;
+}

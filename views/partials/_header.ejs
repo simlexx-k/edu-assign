@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" role="navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">EduAssign</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" role="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
+        <% if (session && session.userId) { %>
+          <% if (session.userRole === 'teacher') { %>
+            <a class="nav-link" href="/create-assignment">Create Assignment</a>
+            <a class="nav-link" href="/grade-submissions">Grade Submissions</a>
+            <a class="nav-link" href="/class-progress">Class Progress</a>
+          <% } else if (session.userRole === 'student') { %>
+            <a class="nav-link" href="/assignments">My Assignments</a>
+            <a class="nav-link" href="/my-progress">My Progress</a>
+          <% } else if (session.userRole === 'administrator') { %>
+            <a class="nav-link" href="/user-management">User Management</a>
+            <a class="nav-link" href="/subject-management">Subject Management</a>
+          <% } %>
+          <a class="nav-link" href="/auth/logout">Logout</a>
+        <% } else { %>
+          <a class="nav-link" href="/auth/login">Login</a>
+          <a class="nav-link" href="/auth/register">Register</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+<script src="/js/navbar.js"></script>

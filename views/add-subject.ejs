@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-5">
+  <h2>Add New Subject</h2>
+  <form action="/subjects" method="POST">
+    <div class="mb-3">
+      <input type="text" name="name" placeholder="Subject Name" required class="form-control">
+    </div>
+    <input type="hidden" name="_csrf" value="<%= _csrf %>">
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Add Subject</button>
+    </div>
+  </form>
+</main>
+<%- include('partials/_footer.ejs') %>
+</body>
+</html>

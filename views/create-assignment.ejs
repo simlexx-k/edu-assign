@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+  <body>
+<%- include('partials/_header.ejs') %>
+    <main role="main" class="container mt-5">
+      <h2>Create Assignment</h2>
+      <form action="/create-assignment" method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <input type="text" name="subject" placeholder="Subject" required class="form-control">
+        </div>
+        <div class="mb-3">
+          <input type="date" name="dueDate" required class="form-control">
+        </div>
+        <div class="mb-3">
+          <textarea name="questions" rows="5" placeholder="Questions (separated by new line)" required class="form-control"></textarea>
+        </div>
+        <input type="hidden" name="_csrf" value="<%= _csrf %>">
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Create Assignment</button>
+        </div>
+      </form>
+    </main>
+<%- include('partials/_footer.ejs') %>
+<%- include('partials/_modal.ejs') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

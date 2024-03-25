@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+  <body>
+<%- include('partials/_header.ejs') %>
+    <main role="main" class="container mt-5">
+      <h2>Submit Assignment</h2>
+      <form action="/submit-assignment/<%= assignment._id %>" method="POST">
+        <% assignment.questions.forEach((question, index) => { %>
+          <div class="mb-3">
+            <label><%= index + 1 %>. <%= question %></label>
+            <textarea name="answers[<%= index %>]" rows="2" required class="form-control"></textarea>
+          </div>
+        <% }); %>
+        <input type="hidden" name="_csrf" value="<%= _csrf %>">
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </main>
+  </body>
+<%- include('partials/_footer.ejs') %>
+</html>

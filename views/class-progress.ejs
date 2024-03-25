@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<body>
+<%- include('partials/_header.ejs') %>
+<main role="main" class="container mt-5">
+  <h2>Class Progress</h2>
+  <canvas id="classProgressChart"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('classProgressChart').getContext('2d');
+    const subjects = [<% assignments.forEach(assignment => { %>"<%= assignment.subject %>",<% }); %>];
+    const averageGrades = [<% assignments.forEach(assignment => { 
+      const assignmentSubmissions = submissions.filter(submission => submission.assignmentId && submission.assignmentId._id.equals(assignment._id));
+      const totalGrade = assignmentSubmissions.reduce((acc, curr) => acc + (curr.grade ? parseFloat(curr.grade) : 0), 0);
+      const averageGrade = assignmentSubmissions.length > 0 ? totalGrade / assignmentSubmissions.length : 0;
+      %><%= averageGrade %>,<% 
+    }); %>];
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: subjects,
+        datasets: [{
+          label: 'Average Grades',
+          data: averageGrades,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</main>
+<%- include('partials/_footer.ejs') %>
+</body>
+</html>
