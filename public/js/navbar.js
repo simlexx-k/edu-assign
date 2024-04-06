@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbarMenu = document.querySelector('.navbar-collapse');
 
     const toggleNavbar = () => {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < 1024) {
             navbarMenu.classList.toggle('show');
         }
     };

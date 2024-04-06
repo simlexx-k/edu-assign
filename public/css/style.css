@@ -3,7 +3,7 @@ body {
   padding-top: 56px; /* Adjust padding to ensure content is not hidden behind fixed navbar */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .container {
     padding: 0 15px; /* Adjust container padding on smaller screens */
   }
