@@ -25,6 +25,9 @@
     "express-session": "^1.18.0",
     "moment": "^2.30.1",
     "mongoose": "^8.1.1",
-    "pdfkit": "^0.15.0"
+    "pdfkit": "^0.15.0",
+    "webpack": ">= v5.0.0",
+    "webpack-dev-server": ">= v4.0.0",
+    "webpack-cli": "v5.0.0"
   }
 }
